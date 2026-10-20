@@ -227,14 +227,14 @@ def home(lang):
             title="Cursos de IA para empresas y directivos | NextMind Learning",
             desc="Formación ejecutiva a medida en IA, ciberseguridad, transformación digital y liderazgo para grandes empresas, con profesorado universitario de referencia.",
             h1="Cursos para empresas con profesorado de universidades de referencia mundial",
-            lead="En NextMind Learning diseñamos programas de formación ejecutiva en inteligencia artificial, ciberseguridad, transformación digital, ingeniería y liderazgo para grandes empresas, junto a el instituto tecnológico de referencia mundial con sede en Cambridge, Massachusetts, y la universidad más antigua de Estados Unidos, en la misma ciudad.",
+            lead="En NextMind Learning diseñamos programas de formación ejecutiva en inteligencia artificial, ciberseguridad, transformación digital, ingeniería y liderazgo para grandes empresas, junto a universidades de referencia mundial de Estados Unidos.",
             b1="Ver cursos para empresas", b2="Contáctanos", kicker="Formación ejecutiva para grandes empresas", panel="Qué enseñamos",
             board=["Inteligencia artificial", "IA agéntica", "Ciberseguridad", "Computación cuántica",
                    "Internet de las cosas", "Transformación digital", "Liderazgo e innovación", "Sostenibilidad y ESG"],
             intro_h="Formación diseñada a partir de su estrategia",
             intro=["La tecnología está cambiando todos los sectores, pero la transformación depende de las personas. Trabajamos con grandes organizaciones para formar a su comité de dirección, a sus mandos y a sus equipos técnicos con programas que parten de sus objetivos de negocio, no de un temario estándar.",
                    "Combinamos cursos online de universidades de primer nivel, sesiones en directo con su profesorado, talleres presenciales y programas desarrollados desde cero para su empresa."],
-            fmt_h="Cinco formas de trabajar con nosotros", fmt_link="Ver formatos, temas y certificaciones",
+            fmt_h="Cinco formas de trabajar con nosotros", fmt_link="Ver formatos, temas y certificaciones", cons_link="Conocer la consultoría ejecutiva",
             areas_h="Áreas de formación", areas_p="Cada área reúne temas que combinamos en programas a medida. Seleccione una para ver el catálogo.",
             who_h="Para quién", who_p="Grandes empresas, multinacionales, administraciones públicas e instituciones que necesitan preparar a sus líderes y equipos para las tecnologías emergentes.",
             out_h="Qué consiguen las organizaciones",
@@ -248,14 +248,14 @@ def home(lang):
             title="Corporate AI courses for executives | NextMind Learning",
             desc="Custom executive education in AI, cybersecurity, digital transformation and leadership for large companies, with faculty from world-leading universities.",
             h1="Corporate courses with faculty from world-leading universities",
-            lead="NextMind Learning designs executive education programs in artificial intelligence, cybersecurity, digital transformation, engineering and leadership for large companies, together with the world-leading institute of technology based in Cambridge, Massachusetts, and the oldest university in the United States, in the same city.",
+            lead="NextMind Learning designs executive education programs in artificial intelligence, cybersecurity, digital transformation, engineering and leadership for large companies, together with world-leading universities in the United States.",
             b1="See corporate courses", b2="Contact us", kicker="Executive education for large companies", panel="What we teach",
             board=["Artificial intelligence", "Agentic AI", "Cybersecurity", "Quantum computing",
                    "Internet of Things", "Digital transformation", "Leadership and innovation", "Sustainability and ESG"],
             intro_h="Learning built around your strategy",
             intro=["Technology is reshaping every industry, but transformation depends on people. We work with large organizations to develop their executive committees, managers and technical teams through programs that start from their business objectives, not from a standard syllabus.",
                    "We combine online courses from top universities, live sessions with their faculty, in-person workshops and programs built from scratch for your company."],
-            fmt_h="Five ways to work with us", fmt_link="See formats, topics and certificates",
+            fmt_h="Five ways to work with us", fmt_link="See formats, topics and certificates", cons_link="About executive consulting",
             areas_h="Learning areas", areas_p="Each area brings together topics we combine into tailored programs. Choose one to open the catalog.",
             who_h="Who it's for", who_p="Large companies, multinationals, government bodies and institutions that need to prepare their leaders and teams for emerging technologies.",
             out_h="What organizations achieve",
@@ -277,8 +277,8 @@ def home(lang):
     <h1>{e(T['h1'])}</h1>
     <div class="stem"><div><p class="lead">{e(T['lead'])}</p></div></div>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="{courses}">{e(T['b1'])}</a>
-      <a class="btn btn-secondary" href="{rel(k, lang, ROUTES['contact'][lang])}">{e(T['b2'])}</a>
+      <a class="btn btn-primary" href="{rel(k, lang, ROUTES['contact'][lang])}">{e(T['b2'])}</a>
+      <a class="hero-link" href="{courses}">{e(T['b1'])}</a>
     </div>
   </div>
 </section>
@@ -292,12 +292,12 @@ def home(lang):
 <section class="section"><div class="wrap">
   <div class="section-head"><h2>{e(T['fmt_h'])}</h2></div>
   {rows(FORMATS[lang])}
-  <p style="margin-top:1.5rem"><a href="{courses}">{e(T['fmt_link'])}</a></p>
+  <p style="margin-top:1.5rem"><a href="{courses}">{e(T['fmt_link'])}</a> &nbsp;·&nbsp; <a href="{rel(k, lang, ROUTES['consulting'][lang])}">{e(T['cons_link'])}</a></p>
 </div></section>
 
 <section class="section section-alt"><div class="wrap">
   <div class="section-head"><h2>{e(T['areas_h'])}</h2><p>{e(T['areas_p'])}</p></div>
-  <ul class="tags">{areas}</ul>
+  <ul class="tags area-tags">{areas}</ul>
 </div></section>
 
 <section class="section"><div class="wrap split">
@@ -347,8 +347,8 @@ def courses(lang):
                     ("Mandos y equipos técnicos", "Programas aplicados para grupos grandes, centrados en identificar, diseñar y desplegar casos de uso de forma responsable.")],
             lvl_p="Formar a ambos niveles a la vez alinea la estrategia con la ejecución: la dirección elige las iniciativas adecuadas y los equipos tienen la capacidad de construirlas.",
             themes_h="Temas frecuentes en programas a medida",
-            mix_h="Tecnología y liderazgo de Cambridge en un mismo programa",
-            mix_p="Un programa puede combinar contenido técnico del instituto tecnológico de Cambridge, Massachusetts, con contenido de liderazgo de la universidad más antigua de Estados Unidos. Cuando hay certificación, cada institución certifica su parte.",
+            mix_h="Tecnología y liderazgo en un mismo programa",
+            mix_p="Un programa puede combinar contenido técnico de un instituto tecnológico líder con contenido de liderazgo de una universidad de referencia. Cuando hay certificación, cada institución certifica su parte.",
             cat_h="Catálogo de temas", cat_all="Todos", cat_count="{n} temas", cat_hint="Seleccione un área para ver sus temas.", cat_close="Cerrar",
             cat_note="Lista orientativa. Cada programa se diseña para su organización; pregúntenos por temas que no aparezcan aquí.",
             cert_h="Certificados",
@@ -373,8 +373,8 @@ def courses(lang):
                     ("Managers and technical teams", "Applied programs for large groups, focused on identifying, designing and deploying use cases responsibly.")],
             lvl_p="Training both levels together aligns strategy and execution: leadership chooses the right initiatives and teams have the capability to build them.",
             themes_h="Frequent themes in tailored programs",
-            mix_h="Cambridge technology and leadership in one program",
-            mix_p="A program can combine technical content from the institute of technology in Cambridge, Massachusetts with leadership content from the oldest university in the United States. Where certification applies, each institution certifies its own part.",
+            mix_h="Technology and leadership in one program",
+            mix_p="A program can combine technical content from a leading institute of technology with leadership content from a world-leading university. Where certification applies, each institution certifies its own part.",
             cat_h="Topic catalog", cat_all="All", cat_count="{n} topics", cat_hint="Choose an area to see its topics.", cat_close="Close",
             cat_note="Indicative list. Every program is designed for your organization; ask us about topics not listed here.",
             cert_h="Certificates",
@@ -401,6 +401,7 @@ def courses(lang):
 <section class="section"><div class="wrap">
   <div class="section-head"><h2>{e(T['fmt_h'])}</h2><p>{e(T['fmt_p'])}</p></div>
   {rows(FORMATS[lang])}
+  <p style="margin-top:1.5rem"><a href="{rel(k, lang, ROUTES['consulting'][lang])}">{e(UI[lang]['nav']['consulting'])}</a></p>
 </div></section>
 
 <section class="section"><div class="wrap">
@@ -465,6 +466,76 @@ def courses(lang):
     return T["title"], T["desc"], body, [service, faq_ld(faqs)]
 
 
+def consulting(lang):
+    k = "consulting"
+    T = {
+        "es": dict(
+            title="Consultoría ejecutiva en formación e IA | NextMind Learning",
+            desc="Consultoría para la dirección: estrategia de aprendizaje, diagnóstico de capacidades en IA y tecnología, y proyectos con equipos universitarios de referencia.",
+            h1="Consultoría ejecutiva",
+            lead="Acompañamos a la dirección a convertir la estrategia de negocio en capacidades: qué debe aprender cada nivel de la organización, cómo hacerlo y con quién.",
+            what_h="Qué hacemos",
+            what=[("Estrategia de aprendizaje", "Definimos con la dirección las prioridades de formación y las alineamos con los objetivos de transformación del negocio."),
+                  ("Diagnóstico de capacidades", "Identificamos qué necesita aprender cada nivel de la organización en IA y tecnología, conectando la visión de la dirección con las necesidades reales de los equipos técnicos."),
+                  ("Desarrollo de capacidades a largo plazo", "Diseñamos itinerarios y academias corporativas que pueden ampliarse a otros departamentos, filiales y países."),
+                  ("Proyectos con equipos universitarios", "Conectamos a su empresa con equipos de universidades de referencia mundial para proyectos de consultoría y desarrollo tecnológico.")],
+            how_h="Cómo trabajamos",
+            how=[("Primera conversación", "Nos cuenta sus retos. Antes de compartir información sensible, firmamos un acuerdo de confidencialidad."),
+                 ("Diagnóstico", "Analizamos la situación con la dirección y con los equipos implicados."),
+                 ("Recomendaciones", "Le presentamos recomendaciones concretas y las acciones para llevarlas a cabo."),
+                 ("Puesta en marcha", "Le acompañamos en la ejecución, con programas de formación, proyectos con equipos universitarios o ambos.")],
+            alone_h="Sola o junto a un programa",
+            alone_p="La consultoría puede contratarse como servicio independiente o combinarse con nuestros programas de formación. Cada proyecto se presupuesta según su alcance.",
+            alone_a="Ver cursos para empresas",
+            faq_h="Preguntas frecuentes",
+            faq=[("¿Se puede contratar la consultoría sin un programa de formación?", "Sí. Es un servicio independiente, aunque también puede combinarse con cualquiera de nuestros programas."),
+                 ("¿A quién va dirigida?", "A comités de dirección, alta dirección y responsables de personas, estrategia, innovación y transformación digital de grandes organizaciones."),
+                 ("¿Cómo se presupuesta?", "Según el alcance de cada proyecto. Cuéntenos su situación y le prepararemos una propuesta."),
+                 ("¿Es confidencial?", "Sí. Firmamos un acuerdo de confidencialidad antes de compartir cualquier información sensible.")],
+            cta_h="Hablemos de su estrategia", cta_p="Cuéntenos qué quiere conseguir y le propondremos cómo empezar."),
+        "en": dict(
+            title="Executive consulting in learning and AI | NextMind Learning",
+            desc="Consulting for leadership teams: learning strategy, AI and technology capability assessment, and projects with world-leading university teams.",
+            h1="Executive consulting",
+            lead="We help leadership teams turn business strategy into capabilities: what each level of the organization should learn, how, and with whom.",
+            what_h="What we do",
+            what=[("Learning strategy", "We set learning priorities with leadership and align them with your business transformation goals."),
+                  ("Capability assessment", "We identify what each level of the organization needs to learn in AI and technology, connecting leadership's vision with the real needs of technical teams."),
+                  ("Long-term capability building", "We design learning journeys and corporate academies that can be extended to other departments, subsidiaries and countries."),
+                  ("Projects with university teams", "We connect your company with teams from world-leading universities for consulting and technology development projects.")],
+            how_h="How we work",
+            how=[("First conversation", "You tell us about your challenges. Before any sensitive information is shared, we sign a confidentiality agreement."),
+                 ("Assessment", "We review the situation with leadership and the teams involved."),
+                 ("Recommendations", "We present concrete recommendations and the actions needed to carry them out."),
+                 ("Implementation", "We support execution through learning programs, projects with university teams, or both.")],
+            alone_h="On its own or with a program",
+            alone_p="Consulting can be engaged as a standalone service or combined with our learning programs. Each project is quoted according to its scope.",
+            alone_a="See corporate courses",
+            faq_h="Frequently asked questions",
+            faq=[("Can we engage consulting without a learning program?", "Yes. It is a standalone service, and it can also be combined with any of our programs."),
+                 ("Who is it for?", "Executive committees, senior leaders and heads of people, strategy, innovation and digital transformation in large organizations."),
+                 ("How is it priced?", "According to the scope of each project. Tell us about your situation and we will prepare a proposal."),
+                 ("Is it confidential?", "Yes. We sign a confidentiality agreement before any sensitive information is shared.")],
+            cta_h="Let's talk about your strategy", cta_p="Tell us what you want to achieve and we will suggest how to start."),
+    }[lang]
+    blocks = '<div class="blocks">' + "".join(f"<div><h3>{e(a)}</h3><p>{e(b)}</p></div>" for a, b in T["what"]) + "</div>"
+    how = '<ol class="steps steps-4">' + "".join(f"<li><h3>{e(a)}</h3><p>{e(b)}</p></li>" for a, b in T["how"]) + "</ol>"
+    body = f"""
+{page_hero(k, lang, T['h1'], T['lead'], img="consulting-hero")}
+<section class="section"><div class="wrap"><div class="section-head"><h2>{e(T['what_h'])}</h2></div>{blocks}</div></section>
+<section class="section section-alt"><div class="wrap"><div class="section-head"><h2>{e(T['how_h'])}</h2></div>{how}</div></section>
+<section class="section"><div class="wrap split"><h2>{e(T['alone_h'])}</h2><div><p class="lead">{e(T['alone_p'])}</p>
+  <p><a href="{rel(k, lang, ROUTES['courses'][lang])}">{e(T['alone_a'])}</a></p></div></div></section>
+<section class="section"><div class="wrap"><div class="section-head"><h2>{e(T['faq_h'])}</h2></div>{faq_html(T['faq'])}</div></section>
+{cta_band(k, lang, T['cta_h'], T['cta_p'])}
+"""
+    service = {"@type": "Service", "@id": url(k, lang) + "#service", "name": T["h1"], "description": T["desc"],
+               "serviceType": "Executive consulting" if lang == "en" else "Consultoría ejecutiva",
+               "provider": {"@id": ORG_ID},
+               "areaServed": [{"@type": "Country", "name": "Spain"}, {"@type": "Place", "name": "Latin America"}]}
+    return T["title"], T["desc"], body, [service, faq_ld(T["faq"])]
+
+
 def partners(lang):
     k = "partners"
     T = {
@@ -481,10 +552,10 @@ def partners(lang):
                   ("Experiencias internacionales", "Estancias y experiencias de estudio en universidades de otros países."),
                   ("Programas a medida", "Oportunidades de aprendizaje diseñadas para cada institución.")],
             uni_h="Universidades con las que trabajamos",
-            unis=[("Un instituto tecnológico de referencia mundial en Cambridge, Massachusetts", "Inteligencia artificial, computación cuántica, ciberseguridad, internet de las cosas, biotecnología, innovación y liderazgo en ingeniería, incluida su formación profesional online y presencial."),
-                  ("La universidad más antigua de Estados Unidos, también en Cambridge", "Liderazgo y programas conjuntos que combinan su enfoque directivo con el contenido técnico del instituto tecnológico vecino."),
-                  ("Una universidad de investigación de Baltimore", "Proyectos en biotecnología y salud pública."),
-                  ("Una gran universidad pública de Seattle", "Programas preuniversitarios en su campus.")],
+            unis=[("Institutos tecnológicos líderes", "Inteligencia artificial, computación cuántica, ciberseguridad, internet de las cosas, biotecnología, innovación y liderazgo en ingeniería, con formación profesional online y presencial."),
+                  ("Universidades de referencia en liderazgo y gestión", "Liderazgo y programas conjuntos que combinan el enfoque directivo con contenido tecnológico."),
+                  ("Universidades de investigación en ciencias de la salud", "Proyectos en biotecnología y salud pública."),
+                  ("Universidades públicas de referencia", "Programas preuniversitarios en sus campus.")],
             why_h="Un modelo flexible y a largo plazo",
             why=["Combinamos experiencia global con conocimiento local para ayudar a las universidades a reforzar su oferta y preparar a estudiantes y profesionales para el futuro del trabajo.",
                  "Tanto si quiere enriquecer su catálogo actual como lanzar nuevas iniciativas ejecutivas o tecnológicas, buscamos alianzas duraderas con impacto real."],
@@ -502,10 +573,10 @@ def partners(lang):
                   ("International experiences", "Study experiences at universities abroad."),
                   ("Tailored programs", "Learning opportunities designed for each institution.")],
             uni_h="Universities we work with",
-            unis=[("A world-leading institute of technology in Cambridge, Massachusetts", "Artificial intelligence, quantum computing, cybersecurity, the Internet of Things, biotechnology, innovation and engineering leadership, including its online and in-person professional education."),
-                  ("The oldest university in the United States, also in Cambridge", "Leadership, and joint programs that pair its management focus with technical content from its neighbouring institute of technology."),
-                  ("A Baltimore research university", "Projects in biotechnology and public health."),
-                  ("A major public university in Seattle", "Pre-university programs on its campus.")],
+            unis=[("Leading institutes of technology", "Artificial intelligence, quantum computing, cybersecurity, the Internet of Things, biotechnology, innovation and engineering leadership, with online and in-person professional education."),
+                  ("Universities renowned for leadership and management", "Leadership, and joint programs that pair a management focus with technology content."),
+                  ("Research universities in the health sciences", "Projects in biotechnology and public health."),
+                  ("Leading public universities", "Pre-university programs on their campuses.")],
             why_h="A flexible, long-term model",
             why=["We combine global expertise with local knowledge to help universities strengthen their offer and prepare students and professionals for the future of work.",
                  "Whether you want to enrich your existing portfolio or launch new executive or technology initiatives, we look for lasting partnerships with real impact."],
@@ -540,7 +611,7 @@ def camps(lang):
                    ("Inglés y cultura", "Clases de inglés por niveles y actividades culturales."),
                    ("Preparación para la admisión universitaria", "Orientación sobre el ensayo de admisión, el SAT y el Duolingo English Test."),
                    ("Formato combinado", "Un curso online con certificado seguido de una estancia en el campus."),
-                   ("Visitas a campus", "Visitas guiadas a los campus universitarios más conocidos de Cambridge, Massachusetts."),
+                   ("Visitas a campus", "Visitas guiadas a campus de universidades de referencia en Estados Unidos."),
                    ("Acompañamiento", "Personal de apoyo durante el programa, guía previa al viaje y documentación de apoyo para el visado.")],
             why_h="Por qué participar",
             why=["Vivir la vida universitaria antes de solicitar plaza.",
@@ -563,7 +634,7 @@ def camps(lang):
                    ("English and culture", "Level-based English classes and cultural activities."),
                    ("University admissions preparation", "Guidance on admission essays, the SAT and the Duolingo English Test."),
                    ("Blended format", "A certificate-bearing online course followed by a stay on campus."),
-                   ("Campus visits", "Guided visits to the best-known university campuses in Cambridge, Massachusetts."),
+                   ("Campus visits", "Guided visits to the campuses of leading US universities."),
                    ("Support", "Staff support throughout the program, pre-departure guidance and visa support documents.")],
             why_h="Why take part",
             why=["Experience university life before applying.",
@@ -685,7 +756,7 @@ def contact(lang):
     return T["title"], T["desc"], body, [{"@type": "ContactPage", "url": url(k, lang), "name": T["title"]}]
 
 
-PAGES = {"home": home, "courses": courses, "partners": partners, "camps": camps, "about": about, "contact": contact}
+PAGES = {"home": home, "courses": courses, "consulting": consulting, "partners": partners, "camps": camps, "about": about, "contact": contact}
 
 
 # ------------------------------------------------------------------ layout
@@ -693,7 +764,7 @@ def org_ld():
     org = {
         "@type": "EducationalOrganization", "@id": ORG_ID, "name": BRAND, "url": SITE + "/",
         "logo": SITE + "/assets/logo.png", "email": CONFIG["email"],
-        "description": "NextMind Learning designs corporate courses and executive education programs in artificial intelligence, cybersecurity, digital transformation, engineering and leadership for large companies, with faculty from world-leading US universities, including a world-leading institute of technology and the oldest university in the United States, both in Cambridge, Massachusetts. It also runs university partnerships and pre-university technology camps.",
+        "description": "NextMind Learning designs corporate courses and executive education programs in artificial intelligence, cybersecurity, digital transformation, engineering and leadership for large companies, with faculty from world-leading US universities. It also runs university partnerships and pre-university technology camps.",
         "areaServed": ["Spain", "Latin America"],
         "knowsAbout": ["Artificial intelligence", "Agentic AI", "Generative AI", "Machine learning", "Cybersecurity",
                        "Quantum computing", "Internet of Things", "Digital transformation", "Data science",
@@ -771,7 +842,7 @@ def layout(key, lang, title, desc, body, extra_ld):
   <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">{e(u['menu'])}</button>
   <nav class="nav" id="site-nav" aria-label="{e(u['footer_nav'])}">{nav_links}
     <a class="lang" href="{rel(key, lang, ROUTES[key][other]) or './'}" hreflang="{other}" lang="{other}">{e(u['switch'])}</a></nav>
-  <a class="btn btn-secondary" href="{a(ROUTES['contact'][lang])}">{e(u['cta'])}</a>
+  <a class="btn btn-primary" href="{a(ROUTES['contact'][lang])}">{e(u['cta'])}</a>
 </div></header>
 <main id="main">
 {body}
@@ -824,13 +895,13 @@ def llms():
     topics_en = "\n".join(f"- {area_name(a, 'en')}: {ten}" for a, tes, ses, ten, sen in TOPICS)
     return f"""# {BRAND}
 
-> {BRAND} designs corporate courses and executive education programs for large companies in artificial intelligence (including generative and agentic AI), cybersecurity, digital transformation, quantum computing, the Internet of Things, engineering, fashion and retail technology, sustainability and leadership. Programs are delivered with faculty from world-leading US universities: a world-leading institute of technology and the oldest university in the United States, both in Cambridge, Massachusetts, plus a Baltimore research university known for public health and a major public university in Seattle. Institution names are shared in proposals. It serves organizations in Spain and Latin America, and programs can be rolled out internationally. Website available in Spanish and English.
+> {BRAND} designs corporate courses and executive education programs for large companies in artificial intelligence (including generative and agentic AI), cybersecurity, digital transformation, quantum computing, the Internet of Things, engineering, fashion and retail technology, sustainability and leadership. Programs are delivered with faculty from world-leading US universities, including leading institutes of technology and universities renowned for leadership, management and health sciences. Institution details are shared in proposals. It serves organizations in Spain and Latin America, and programs can be rolled out internationally. Website available in Spanish and English.
 
 ## Main service: corporate courses for large companies
 - Formats: pre-designed programs (online courses from the universities' own professional learning platforms), blended programs (online + live workshops with university faculty), live virtual programs (from a single executive session or masterclass to multi-session journeys), custom programs (curricula co-developed with each organization), and executive consulting on learning strategy.
 - Delivery: remote, on site in the client's country, or campus immersion for selected cohorts. Length from a two-hour executive session to multi-month or multi-year initiatives.
 - Audiences: executive committees and C-suite, senior leaders, directors, technical and engineering leaders, high-potential talent, innovation and transformation teams. Cohorts from small executive groups to hundreds of managers.
-- Certificates: selected programs include a certificate issued by the university itself, subject to its requirements. Programs can combine technical content from the Cambridge institute of technology with leadership content from its neighbouring university; each institution certifies its own part.
+- Certificates: selected programs include a certificate issued by the university itself, subject to its requirements. Programs can combine technical content from a leading institute of technology with leadership content from a world-leading university; each institution certifies its own part.
 - Process: first conversation and confidentiality agreement, needs assessment, tailored proposal, content design with university faculty, delivery with pre- and post-program assessment, scale-up to other departments, subsidiaries and countries.
 - Pricing: quoted per project according to audience, format, duration and certification. No public price list.
 
@@ -838,12 +909,14 @@ def llms():
 {topics_en}
 
 ## Secondary services
+- Executive consulting: learning strategy, AI and technology capability assessment, long-term capability building and corporate academies, and consulting or technology development projects with university teams. Standalone or combined with programs.
 - University partnerships: co-developed academic programs, executive education, faculty collaboration, technology bootcamps, international study experiences.
 - Camps: summer and winter technology camps for pre-university students aged 16+, on US university campuses (AI, innovation, English, university admissions preparation).
 
 ## Pages
 - [Home (ES)]({url('home', 'es')}) / [Home (EN)]({url('home', 'en')})
 - [Cursos para empresas]({url('courses', 'es')}) / [Corporate courses]({url('courses', 'en')})
+- [Consultoría]({url('consulting', 'es')}) / [Consulting]({url('consulting', 'en')})
 - [Alianzas universitarias]({url('partners', 'es')}) / [University partnerships]({url('partners', 'en')})
 - [Campamentos]({url('camps', 'es')}) / [Camps]({url('camps', 'en')})
 - [Sobre nosotros]({url('about', 'es')}) / [About]({url('about', 'en')})

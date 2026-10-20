@@ -32,17 +32,18 @@ CONFIG = {
 ROUTES = {
     "home":     {"es": "",                         "en": "en/"},
     "courses":  {"es": "cursos-para-empresas/",    "en": "en/corporate-courses/"},
+    "consulting": {"es": "consultoria/",           "en": "en/consulting/"},
     "partners": {"es": "alianzas-universitarias/", "en": "en/university-partnerships/"},
     "camps":    {"es": "campamentos/",             "en": "en/camps/"},
     "about":    {"es": "sobre-nosotros/",          "en": "en/about/"},
     "contact":  {"es": "contacto/",                "en": "en/contact/"},
 }
 
-NAV = ["courses", "partners", "camps", "about"]
+NAV = ["courses", "consulting", "partners", "camps", "about"]
 
 UI = {
     "es": {
-        "nav": {"home": "Inicio", "courses": "Cursos para empresas", "partners": "Alianzas universitarias",
+        "nav": {"home": "Inicio", "courses": "Cursos para empresas", "consulting": "Consultoría", "partners": "Alianzas universitarias",
                 "camps": "Campamentos", "about": "Sobre nosotros", "contact": "Contacto"},
         "cta": "Contáctanos",
         "skip": "Saltar al contenido",
@@ -56,7 +57,7 @@ UI = {
         "universities_note": "Fotografías: Unsplash. Vídeo: Mixkit.",
     },
     "en": {
-        "nav": {"home": "Home", "courses": "Corporate courses", "partners": "University partnerships",
+        "nav": {"home": "Home", "courses": "Corporate courses", "consulting": "Consulting", "partners": "University partnerships",
                 "camps": "Camps", "about": "About us", "contact": "Contact"},
         "cta": "Contact us",
         "skip": "Skip to content",
@@ -149,7 +150,7 @@ OUTCOMES = {
 FAQ_HOME = {
     "es": [
         ('¿Con qué universidades trabajan?',
-         'Trabajamos con el instituto tecnológico de referencia mundial con sede en Cambridge, Massachusetts, incluida su formación profesional online y presencial, y con la universidad más antigua de Estados Unidos, en la misma ciudad. También colaboramos con una universidad de investigación de Baltimore de referencia en salud pública y con una gran universidad pública de Seattle. Compartimos el nombre de cada institución en nuestras propuestas.'),
+         'Trabajamos con universidades de referencia mundial de Estados Unidos, entre ellas institutos tecnológicos líderes y universidades destacadas en liderazgo, gestión y ciencias de la salud. Compartimos los detalles de cada institución en nuestras propuestas.'),
         ("¿Los participantes reciben un certificado?",
          "Algunos programas incluyen un certificado expedido por la institución correspondiente, sujeto a sus requisitos, como completar evaluaciones o un proyecto final. En cada propuesta indicamos si el programa es certificado."),
         ("¿Los cursos son online o presenciales?",
@@ -163,7 +164,7 @@ FAQ_HOME = {
     ],
     "en": [
         ('Which universities do you work with?',
-         'We work with the world-leading institute of technology based in Cambridge, Massachusetts, including its online and in-person professional education, and with the oldest university in the United States, in the same city. We also work with a Baltimore research university known for public health and with a major public university in Seattle. We share each institution’s name in our proposals.'),
+         'We work with world-leading universities in the United States, including leading institutes of technology and universities renowned for leadership, management and health sciences. We share the details of each institution in our proposals.'),
         ("Do participants receive a certificate?",
          "Selected programs include a certificate issued by the corresponding institution, subject to its requirements, such as completing assessments or a capstone project. Every proposal states whether the program is certified."),
         ("Are the courses online or in person?",
@@ -182,7 +183,7 @@ FAQ_COURSES_EXTRA = {
         ("¿Pueden diseñar un programa exclusivo para nuestra empresa?",
          "Sí. Un currículo diseñado específicamente para su organización puede desplegarse después en sus filiales y en otros países."),
         ('¿Se pueden combinar dos universidades en un mismo programa?',
-         'Sí. Un programa puede combinar contenido técnico del instituto tecnológico de Cambridge, Massachusetts, con contenido de liderazgo de la universidad más antigua de Estados Unidos. Cuando hay certificación, cada institución certifica su parte.'),
+         'Sí. Un programa puede combinar contenido técnico de un instituto tecnológico líder con contenido de liderazgo de una universidad de referencia. Cuando hay certificación, cada institución certifica su parte.'),
         ('¿Los cursos online son de la propia universidad?',
          'Sí. Los programas predefinidos y blended utilizan cursos de la plataforma de formación profesional online de la universidad, y sus certificados los expide la propia institución.'),
     ],
@@ -190,7 +191,7 @@ FAQ_COURSES_EXTRA = {
         ("Can you design an exclusive program for our company?",
          "Yes. A curriculum designed specifically for your organization can later be rolled out across your subsidiaries and in other countries."),
         ('Can two universities be combined in one program?',
-         'Yes. A program can combine technical content from the institute of technology in Cambridge, Massachusetts with leadership content from the oldest university in the United States. Where certification applies, each institution certifies its own part.'),
+         'Yes. A program can combine technical content from a leading institute of technology with leadership content from a world-leading university. Where certification applies, each institution certifies its own part.'),
         ('Are the online courses the university’s own?',
          'Yes. Pre-designed and blended programs use courses from the university’s own online professional learning platform, and certificates are issued by the institution itself.'),
     ],
@@ -460,10 +461,11 @@ MEDIA = {
     "home-intro":        ("4 / 5",  "Directivos trabajando en grupo durante un taller de formación", "Executives working together during a training workshop"),
     "home-partnerships": ("16 / 9", "Profesorado universitario explicando en un aula",                "University faculty teaching in a classroom"),
     "home-camps":        ("16 / 9", "Estudiantes trabajando en un proyecto tecnológico",              "Students working on a technology project"),
-    "courses-hero":      ("4 / 3",  "Profesor impartiendo una sesión a un grupo de directivos",       "Faculty member leading a session with executives"),
-    "courses-delivery":  ("21 / 9", "Grupo de profesionales en una sesión de formación presencial",    "Group of professionals in an in-person training session"),
+    "courses-hero":      ("4 / 3",  "Equipo trabajando alrededor de una pizarra durante una reunión", "Team working around a whiteboard during a meeting"),
+    "courses-delivery":  ("21 / 9", "Profesionales colaborando en una reunión de trabajo",             "Professionals collaborating in a working meeting"),
+    "consulting-hero":   ("4 / 3",  "Directivos analizando información en una reunión",               "Executives reviewing information in a meeting"),
     "partners-hero":     ("4 / 3",  "Profesor dando clase en un aula universitaria",                   "Professor teaching in a university lecture hall"),
-    "camps-hero":        ("4 / 3",  "Estudiantes preuniversitarios construyendo un proyecto",         "Pre-university students building a project"),
+    "camps-hero":        ("4 / 3",  "Estudiantes trabajando juntos con un portátil",                  "Students working together on a laptop"),
     "camps-campus":      ("21 / 9", "Estudiantes atendiendo a una clase en un aula universitaria",      "Students attending a class in a university lecture hall"),
     "about-hero":        ("4 / 3",  "Equipo colaborando en una reunión de trabajo",                   "Team collaborating in a working session"),
 }
@@ -475,7 +477,7 @@ _LECTURE = ("https://images.unsplash.com/photo-1758270704602-9d4103704ad4", "htt
 _STUDENTS = ("https://images.unsplash.com/photo-1758270705290-62b6294dd044", "https://unsplash.com/photos/kp7qkHTgSKc")
 MEDIA_SOURCES = {
     "home-intro": _EXEC, "home-partnerships": _LECTURE, "home-camps": _STUDENTS,
-    "courses-hero": _WORKSHOP, "courses-delivery": _EXEC, "partners-hero": _LECTURE,
+    "courses-hero": _WORKSHOP, "courses-delivery": _EXEC, "consulting-hero": _EXEC, "partners-hero": _LECTURE,
     "camps-hero": _STUDENTS, "camps-campus": _LECTURE, "about-hero": _WORKSHOP,
 }
 HERO_VIDEO_SOURCE = {
