@@ -1,0 +1,81 @@
+# NextMind Learning
+
+> NextMind Learning designs corporate courses and executive education programs for large companies in artificial intelligence (including generative and agentic AI), cybersecurity, digital transformation, quantum computing, the Internet of Things, engineering, fashion and retail technology, sustainability and leadership. Programs are delivered with faculty from world-leading US universities: a world-leading institute of technology and the oldest university in the United States, both in Cambridge, Massachusetts, plus a Baltimore research university known for public health and a major public university in Seattle. Institution names are shared in proposals. It serves organizations in Spain and Latin America, and programs can be rolled out internationally. Website available in Spanish and English.
+
+## Main service: corporate courses for large companies
+- Formats: pre-designed programs (online courses from the universities' own professional learning platforms), blended programs (online + live workshops with university faculty), live virtual programs (from a single executive session or masterclass to multi-session journeys), custom programs (curricula co-developed with each organization), and executive consulting on learning strategy.
+- Delivery: remote, on site in the client's country, or campus immersion for selected cohorts. Length from a two-hour executive session to multi-month or multi-year initiatives.
+- Audiences: executive committees and C-suite, senior leaders, directors, technical and engineering leaders, high-potential talent, innovation and transformation teams. Cohorts from small executive groups to hundreds of managers.
+- Certificates: selected programs include a certificate issued by the university itself, subject to its requirements. Programs can combine technical content from the Cambridge institute of technology with leadership content from its neighbouring university; each institution certifies its own part.
+- Process: first conversation and confidentiality agreement, needs assessment, tailored proposal, content design with university faculty, delivery with pre- and post-program assessment, scale-up to other departments, subsidiaries and countries.
+- Pricing: quoted per project according to audience, format, duration and certification. No public price list.
+
+## Topic catalog (indicative)
+- Artificial intelligence and data: Artificial intelligence
+- Artificial intelligence and data: Agentic AI: designing ethical, empowered AI systems
+- Artificial intelligence and data: Machine learning
+- Artificial intelligence and data: Designing and building AI products and services
+- Artificial intelligence and data: Data science
+- Artificial intelligence and data: Professional certificate in data science and analytics
+- Artificial intelligence and data: Algorithms
+- Emerging technologies: Augmented and virtual reality
+- Emerging technologies: Quantum computing
+- Emerging technologies: Internet of Things (IoT)
+- Emerging technologies: IoT application and design
+- Emerging technologies: Digital twins
+- Emerging technologies: Solid-state electronics
+- Emerging technologies: Advanced materials
+- Cybersecurity: Professional certificate in cybersecurity
+- Digital transformation and innovation: Digital transformation
+- Digital transformation and innovation: Technical innovation: from strategy to application
+- Digital transformation and innovation: Innovation
+- Digital transformation and innovation: Creative thinking
+- Engineering, operations and supply chain: Architecture and systems engineering: models and methods to manage complex systems (4-course series)
+- Engineering, operations and supply chain: Systems thinking
+- Engineering, operations and supply chain: Systems engineering
+- Engineering, operations and supply chain: Professional certificate in technical project management
+- Engineering, operations and supply chain: Additive manufacturing
+- Engineering, operations and supply chain: Manufacturing
+- Engineering, operations and supply chain: Digital supply chain
+- Engineering, operations and supply chain: Supply chain management
+- Engineering, operations and supply chain: Supply chain design
+- Sustainability and ESG: ESG: environmental, social and governance
+- Sustainability and ESG: Sustainable Development Goals (SDGs)
+- Sustainability and ESG: Decarbonization
+- Sustainability and ESG: Sustainability
+- Biotechnology and life sciences: Genome editing
+- Biotechnology and life sciences: Biotechnology
+- Fashion and retail: Fashion and retail IoT distribution
+- Fashion and retail: AI applied to fashion and retail
+- Fashion and retail: AR/VR for design and retail
+- Leadership and executive development: Discovering and implementing your leadership strengths
+- Leadership and executive development: Understanding organizational strategy and capabilities
+- Leadership and executive development: Navigating and leveraging culture and networks
+- Leadership and executive development: Navigating and applying influence and power
+- Leadership and executive development: Leading teams
+- Leadership and executive development: High-performance teams
+- Leadership and executive development: Influence without authority
+- Leadership and executive development: Delegating and empowering
+- Leadership and executive development: Entrepreneurial leadership
+- Leadership and executive development: Decision making
+- Leadership and executive development: Diversity and inclusion
+- Personal effectiveness: Mindfulness and wellness
+- Personal effectiveness: Building self-awareness
+- Personal effectiveness: Understanding your biases
+- Personal effectiveness: Building expertise
+- Personal effectiveness: Growth mindset
+
+## Secondary services
+- University partnerships: co-developed academic programs, executive education, faculty collaboration, technology bootcamps, international study experiences.
+- Camps: summer and winter technology camps for pre-university students aged 16+, on US university campuses (AI, innovation, English, university admissions preparation).
+
+## Pages
+- [Home (ES)](https://nextmindlearning.com/) / [Home (EN)](https://nextmindlearning.com/en/)
+- [Cursos para empresas](https://nextmindlearning.com/cursos-para-empresas/) / [Corporate courses](https://nextmindlearning.com/en/corporate-courses/)
+- [Alianzas universitarias](https://nextmindlearning.com/alianzas-universitarias/) / [University partnerships](https://nextmindlearning.com/en/university-partnerships/)
+- [Campamentos](https://nextmindlearning.com/campamentos/) / [Camps](https://nextmindlearning.com/en/camps/)
+- [Sobre nosotros](https://nextmindlearning.com/sobre-nosotros/) / [About](https://nextmindlearning.com/en/about/)
+- [Contacto](https://nextmindlearning.com/contacto/) / [Contact](https://nextmindlearning.com/en/contact/)
+
+## Contact
+- Email: info@nextmindlearning.com
