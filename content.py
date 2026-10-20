@@ -25,6 +25,15 @@ CONFIG = {
     # OPTIONAL - only if you use a custom domain (writes the CNAME file).
     "custom_domain": "nextmindlearning.com",
 
+    # OPTIONAL - search engine verification codes (only the code inside content="...").
+    # Google Search Console -> "HTML tag" method; Bing Webmaster Tools -> "HTML Meta Tag" method.
+    "google_site_verification": "",
+    "bing_site_verification": "",
+
+    # IndexNow: tells Bing (and other IndexNow engines) about changes right after each publish.
+    # Its key file lives in static/<key>.txt and must match this value.
+    "indexnow_key": "b173110cd99e9f821e9c3caf22e99226",
+
     "brand": "NextMind Learning",
 }
 
