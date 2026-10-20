@@ -719,7 +719,7 @@ def contact(lang):
             name="Nombre y apellidos", company="Empresa o institución", role="Cargo", email="Correo electrónico", phone="Teléfono (opcional)",
             interest="Me interesa", opts=["Cursos para empresas", "Alianza universitaria", "Campamentos", "Otro"],
             msg="Mensaje", consent="He leído la {link} y acepto que NextMind Learning use estos datos para responder a mi consulta.", consent_link="política de privacidad", layer="Responsable: NextMind Learning S.L. Finalidad: responder a su consulta. Base jurídica: su consentimiento. Destinatarios: no se ceden datos a terceros, salvo obligación legal. Derechos: acceso, rectificación, supresión y otros, como se explica en la política de privacidad.",
-            send="Enviar mensaje", side_h="Escríbanos directamente", subject="Nuevo contacto desde la web"),
+            send="Enviar mensaje", sending="Enviando…", ok_h="Gracias por escribirnos", ok_p="Hemos recibido su mensaje y le responderemos lo antes posible.", ok_redirect="Le llevaremos a la página de inicio en {n} segundos.", ok_home="Ir al inicio ahora", side_h="Escríbanos directamente", subject="Nuevo contacto desde la web"),
         "en": dict(
             title="Contact us about executive education | NextMind Learning",
             desc="Tell us your goals and we will design an executive education program in AI and technology for your organization with you.",
@@ -728,7 +728,7 @@ def contact(lang):
             name="Full name", company="Company or institution", role="Job title", email="Email", phone="Phone (optional)",
             interest="I'm interested in", opts=["Corporate courses", "University partnership", "Camps", "Other"],
             msg="Message", consent="I have read the {link} and agree that NextMind Learning may use this information to reply to my enquiry.", consent_link="privacy policy", layer="Controller: NextMind Learning S.L. Purpose: to answer your enquiry. Legal basis: your consent. Recipients: data is not shared with third parties unless legally required. Rights: access, rectification, erasure and others, as explained in the privacy policy.",
-            send="Send message", side_h="Or write to us directly", subject="New website enquiry"),
+            send="Send message", sending="Sending…", ok_h="Thank you for getting in touch", ok_p="We have received your message and will get back to you as soon as possible.", ok_redirect="We will take you to the home page in {n} seconds.", ok_home="Go to the home page now", side_h="Or write to us directly", subject="New website enquiry"),
     }[lang]
     opts = "".join(f"<option>{e(o)}</option>" for o in T["opts"])
     phone = f'<p>{e(CONFIG["phone"])}</p>' if CONFIG["phone"] else ""
@@ -736,7 +736,9 @@ def contact(lang):
     body = f"""
 {page_hero(k, lang, T['h1'], T['lead'])}
 <section class="section"><div class="wrap contact-grid">
-  <form class="form" action="{e(CONFIG['form_endpoint'])}" method="POST">
+  <div class="form-ok" id="form-ok" tabindex="-1" role="status" hidden data-home="{rel(k, lang, ROUTES['home'][lang]) or './'}" data-redirect="{e(T['ok_redirect'])}"><h2>{e(T['ok_h'])}</h2><div class="stem"><div><p class="lead">{e(T['ok_p'])}</p>
+    <p class="form-ok-redirect"></p><p><a href="{rel(k, lang, ROUTES['home'][lang]) or './'}">{e(T['ok_home'])}</a></p></div></div></div>
+  <form class="form" id="contact-form" action="{e(CONFIG['form_endpoint'])}" method="POST" data-sending="{e(T['sending'])}">
     <input type="hidden" name="_subject" value="{e(T['subject'])}">
     <input type="hidden" name="language" value="{lang}">
     <div class="hp" aria-hidden="true"><label>Leave empty<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></div>

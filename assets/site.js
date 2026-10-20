@@ -18,6 +18,39 @@
   }
   if (btn) btn.addEventListener('click', function () { if (langMenu) langMenu.open = false; });
 
+  // Contact form: send in the background and show the thank-you message on this page.
+  // If anything fails, fall back to a normal submit so no message is ever lost.
+  var form = document.getElementById('contact-form');
+  var okBox = document.getElementById('form-ok');
+  if (form && okBox && window.fetch && window.FormData) {
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      var btn = form.querySelector('[type="submit"]');
+      var label = btn ? btn.textContent : '';
+      if (btn) { btn.disabled = true; btn.textContent = form.getAttribute('data-sending') || label; }
+      fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          form.hidden = true;
+          okBox.hidden = false;
+          okBox.focus();
+          okBox.scrollIntoView({ block: 'center' });
+          // After a few seconds, go back to the home page in the same language.
+          var secs = 6, line = okBox.querySelector('.form-ok-redirect'), tpl = okBox.getAttribute('data-redirect') || '';
+          var tick = function () {
+            if (line) line.textContent = tpl.replace('{n}', secs);
+            if (secs <= 0) { window.location.href = okBox.getAttribute('data-home') || '/'; return; }
+            secs -= 1; setTimeout(tick, 1000);
+          };
+          tick();
+        })
+        .catch(function () {
+          if (btn) { btn.disabled = false; btn.textContent = label; }
+          HTMLFormElement.prototype.submit.call(form);
+        });
+    });
+  }
+
   // Catalog: closed until the visitor picks an area; can be closed again.
   var filter = document.querySelector('.catalog-filter');
   if (!filter) return;

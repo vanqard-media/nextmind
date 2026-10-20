@@ -313,6 +313,12 @@ p { margin: 0 0 var(--space-4); max-width: 68ch; }
   .nav .nav-cta:hover { background: #FFB21A; }
 }
 
+/* contact form: thank-you message shown in place of the form */
+.form[hidden], .form-ok[hidden] { display: none; }
+.form-ok { padding: var(--space-7) 0; outline: none; }
+.form-ok h2 { margin-bottom: var(--space-5); }
+.form .btn[disabled] { opacity: .7; cursor: progress; }
+
 /* legal pages */
 .legal-text { max-width: 820px; }
 .legal-sec { padding: var(--space-5) 0; border-top: 1px solid var(--line); }
