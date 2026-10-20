@@ -34,6 +34,17 @@ CONFIG = {
     # Its key file lives in static/<key>.txt and must match this value.
     "indexnow_key": "b173110cd99e9f821e9c3caf22e99226",
 
+    # Company details for the legal notice, privacy policy and structured data.
+    "legal_name": "NextMind Learning S.L.",
+    "tax_id": "B22869721",
+    "street": "Calle Antonio Machado, 27, planta 3B",
+    "postal_code": "28035",
+    "city": "Madrid",
+    "country": "España",
+    "country_code": "ES",
+    # OPTIONAL - Mercantile Registry details, e.g. "Registro Mercantil de Madrid, tomo X, folio Y, hoja M-Z".
+    "registry": "",
+
     "brand": "NextMind Learning",
 }
 
@@ -46,13 +57,15 @@ ROUTES = {
     "camps":    {"es": "campamentos/",             "en": "en/camps/"},
     "about":    {"es": "sobre-nosotros/",          "en": "en/about/"},
     "contact":  {"es": "contacto/",                "en": "en/contact/"},
+    "legal":    {"es": "aviso-legal/",             "en": "en/legal-notice/"},
+    "privacy":  {"es": "politica-de-privacidad/",  "en": "en/privacy-policy/"},
 }
 
 NAV = ["courses", "consulting", "partners", "camps", "about"]
 
 UI = {
     "es": {
-        "nav": {"home": "Inicio", "courses": "Cursos para empresas", "consulting": "Consultoría", "partners": "Alianzas universitarias",
+        "nav": {"home": "Inicio", "courses": "Cursos para empresas", "consulting": "Consultoría", "legal": "Aviso legal", "privacy": "Política de privacidad", "partners": "Alianzas universitarias",
                 "camps": "Campamentos", "about": "Sobre nosotros", "contact": "Contacto"},
         "cta": "Contáctanos",
         "skip": "Saltar al contenido",
@@ -66,7 +79,7 @@ UI = {
         "universities_note": "Fotografías: Unsplash. Vídeo: Mixkit.",
     },
     "en": {
-        "nav": {"home": "Home", "courses": "Corporate courses", "consulting": "Consulting", "partners": "University partnerships",
+        "nav": {"home": "Home", "courses": "Corporate courses", "consulting": "Consulting", "legal": "Legal notice", "privacy": "Privacy policy", "partners": "University partnerships",
                 "camps": "Camps", "about": "About us", "contact": "Contact"},
         "cta": "Contact us",
         "skip": "Skip to content",

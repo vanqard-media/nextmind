@@ -303,3 +303,12 @@ p { margin: 0 0 var(--space-4); max-width: 68ch; }
 @media print { .site-header, .cta-band, .catalog-filter { display: none; } }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .on-black { border-top: 1px solid #333333; } }
 :root[data-theme="dark"] .on-black { border-top: 1px solid #333333; }
+
+/* legal pages */
+.legal-text { max-width: 820px; }
+.legal-sec { padding: var(--space-5) 0; border-top: 1px solid var(--line); }
+.legal-sec:first-child { border-top: 0; padding-top: 0; }
+.legal-sec h2 { font-size: clamp(20px, 1.6vw, 24px); line-height: 1.25; margin-bottom: var(--space-3); }
+.legal-sec p { color: var(--text); }
+.form-layer { font-size: 13px; line-height: 20px; color: var(--text-muted); margin: 0; }
+.legal a { color: #F2F2F2; }

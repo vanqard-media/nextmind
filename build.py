@@ -2,6 +2,7 @@
 """Builds the NextMind Learning static site into ./site  (python3 build.py)"""
 import json, os, re, shutil, datetime
 from html import escape as e
+from legal_texts import LEGAL, PRIVACY, UPDATED
 from content import (MEDIA, MEDIA_SOURCES, HERO_VIDEO_SOURCE, CONFIG, ROUTES, NAV, UI, FORMATS, PROCESS, AUDIENCE, OUTCOMES,
                      FAQ_HOME, FAQ_COURSES_EXTRA, AREAS, TOPICS, FREQUENT_THEMES)
 
@@ -717,7 +718,7 @@ def contact(lang):
             lead="Transformar una organización empieza por desarrollar a sus personas. Cuéntenos sus objetivos y le ayudaremos a diseñar una experiencia de aprendizaje con impacto duradero.",
             name="Nombre y apellidos", company="Empresa o institución", role="Cargo", email="Correo electrónico", phone="Teléfono (opcional)",
             interest="Me interesa", opts=["Cursos para empresas", "Alianza universitaria", "Campamentos", "Otro"],
-            msg="Mensaje", consent="Acepto que NextMind Learning use estos datos para responder a mi consulta.",
+            msg="Mensaje", consent="He leído la {link} y acepto que NextMind Learning use estos datos para responder a mi consulta.", consent_link="política de privacidad", layer="Responsable: NextMind Learning S.L. Finalidad: responder a su consulta. Base jurídica: su consentimiento. Destinatarios: no se ceden datos a terceros, salvo obligación legal. Derechos: acceso, rectificación, supresión y otros, como se explica en la política de privacidad.",
             send="Enviar mensaje", side_h="Escríbanos directamente", subject="Nuevo contacto desde la web"),
         "en": dict(
             title="Contact us about executive education | NextMind Learning",
@@ -726,7 +727,7 @@ def contact(lang):
             lead="Transforming an organization starts with developing its people. Tell us your goals and we will help you design a learning experience with lasting impact.",
             name="Full name", company="Company or institution", role="Job title", email="Email", phone="Phone (optional)",
             interest="I'm interested in", opts=["Corporate courses", "University partnership", "Camps", "Other"],
-            msg="Message", consent="I agree that NextMind Learning may use this information to reply to my enquiry.",
+            msg="Message", consent="I have read the {link} and agree that NextMind Learning may use this information to reply to my enquiry.", consent_link="privacy policy", layer="Controller: NextMind Learning S.L. Purpose: to answer your enquiry. Legal basis: your consent. Recipients: data is not shared with third parties unless legally required. Rights: access, rectification, erasure and others, as explained in the privacy policy.",
             send="Send message", side_h="Or write to us directly", subject="New website enquiry"),
     }[lang]
     opts = "".join(f"<option>{e(o)}</option>" for o in T["opts"])
@@ -746,7 +747,8 @@ def contact(lang):
     <div class="field"><label for="f-phone">{e(T['phone'])}</label><input id="f-phone" type="tel" name="phone" autocomplete="tel"></div>
     <div class="field"><label for="f-interest">{e(T['interest'])}</label><select id="f-interest" name="interest">{opts}</select></div>
     <div class="field full"><label for="f-msg">{e(T['msg'])}</label><textarea id="f-msg" name="message" required></textarea></div>
-    <div class="field full"><label class="check"><input type="checkbox" name="consent" value="yes" required> <span>{e(T['consent'])}</span></label></div>
+    <div class="field full"><label class="check"><input type="checkbox" name="consent" value="yes" required> <span>{e(T['consent']).replace('{link}', f'<a href="{rel(k, lang, ROUTES["privacy"][lang])}">' + e(T['consent_link']) + '</a>')}</span></label></div>
+    <p class="field full form-layer">{e(T['layer'])}</p>
     <div class="field full"><button class="btn btn-primary" type="submit">{e(T['send'])}</button></div>
   </form>
   <div class="contact-side"><h2 style="font-size:1.4rem">{e(T['side_h'])}</h2>
@@ -756,7 +758,26 @@ def contact(lang):
     return T["title"], T["desc"], body, [{"@type": "ContactPage", "url": url(k, lang), "name": T["title"]}]
 
 
-PAGES = {"home": home, "courses": courses, "consulting": consulting, "partners": partners, "camps": camps, "about": about, "contact": contact}
+def _legal_page(k, lang, D):
+    secs = "".join(
+        f'<section class="legal-sec"><h2>{e(h)}</h2>' + "".join(f"<p>{e(p)}</p>" for p in ps) + "</section>"
+        for h, ps in D["sections"])
+    body = f"""
+{page_hero(k, lang, D['h1'], D['lead'])}
+<section class="section"><div class="wrap legal-text">{secs}<p class="note">{e(UPDATED[lang])}</p></div></section>
+"""
+    return D["title"], D["desc"], body, []
+
+
+def legal(lang):
+    return _legal_page("legal", lang, LEGAL[lang])
+
+
+def privacy(lang):
+    return _legal_page("privacy", lang, PRIVACY[lang])
+
+
+PAGES = {"home": home, "courses": courses, "consulting": consulting, "partners": partners, "camps": camps, "about": about, "contact": contact, "legal": legal, "privacy": privacy}
 
 
 # ------------------------------------------------------------------ layout
@@ -764,6 +785,9 @@ def org_ld():
     org = {
         "@type": "EducationalOrganization", "@id": ORG_ID, "name": BRAND, "url": SITE + "/",
         "logo": SITE + "/assets/logo.png", "email": CONFIG["email"],
+        "legalName": CONFIG["legal_name"], "taxID": CONFIG["tax_id"],
+        "address": {"@type": "PostalAddress", "streetAddress": CONFIG["street"], "postalCode": CONFIG["postal_code"],
+                    "addressLocality": CONFIG["city"], "addressCountry": CONFIG["country_code"]},
         "description": "NextMind Learning designs corporate courses and executive education programs in artificial intelligence, cybersecurity, digital transformation, engineering and leadership for large companies, with faculty from world-leading US universities. It also runs university partnerships and pre-university technology camps.",
         "areaServed": ["Spain", "Latin America"],
         "knowsAbout": ["Artificial intelligence", "Agentic AI", "Generative AI", "Machine learning", "Cybersecurity",
@@ -803,6 +827,11 @@ def layout(key, lang, title, desc, body, extra_ld):
     year = datetime.date.today().year
     a = lambda p: rel(key, lang, p)
     og_locale = "es_ES" if lang == "es" else "en_US"
+    verify_tags = ""
+    if CONFIG.get("google_site_verification"):
+        verify_tags += f'\n<meta name="google-site-verification" content="{e(CONFIG["google_site_verification"])}">'
+    if CONFIG.get("bing_site_verification"):
+        verify_tags += f'\n<meta name="msvalidate.01" content="{e(CONFIG["bing_site_verification"])}">'
     lang_names = {"es": "Español", "en": "English"}
     lang_items = "".join(
         f'<li><a href="{rel(key, lang, ROUTES[key][l]) or "./"}" hreflang="{l}" lang="{l}"'
@@ -820,7 +849,7 @@ def layout(key, lang, title, desc, body, extra_ld):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
-<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">{verify_tags}
 <link rel="canonical" href="{canonical}">
 <link rel="alternate" hreflang="es" href="{url(key, 'es')}">
 <link rel="alternate" hreflang="en" href="{url(key, 'en')}">
@@ -863,7 +892,8 @@ def layout(key, lang, title, desc, body, extra_ld):
     <div><h2>{e(u['footer_contact'])}</h2><ul><li><a href="mailto:{e(CONFIG['email'])}">{e(CONFIG['email'])}</a></li>{phone}{li}
       <li><a href="{rel(key, lang, ROUTES[key][other]) or './'}" hreflang="{other}" lang="{other}">{e(u['switch'])}</a></li></ul></div>
   </div>
-  <div class="legal"><p>&copy; {year} {BRAND}. {e(u['rights'])}</p><p>{e(u['universities_note'])}</p></div>
+  <div class="legal"><p>&copy; {year} {CONFIG['legal_name']} · NIF {CONFIG['tax_id']} · {e(CONFIG['street'])}, {CONFIG['postal_code']} {CONFIG['city']}. {e(u['rights'])}</p>
+    <p><a href="{a(ROUTES['legal'][lang])}">{e(u['nav']['legal'])}</a> · <a href="{a(ROUTES['privacy'][lang])}">{e(u['nav']['privacy'])}</a> · {e(u['universities_note'])}</p></div>
 </div></footer>
 <script src="{a('assets/site.js')}" defer></script>
 </body>
@@ -882,7 +912,7 @@ def write(path, text):
 def sitemap():
     out = ['<?xml version="1.0" encoding="UTF-8"?>',
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
-    prio = {"home": "1.0", "courses": "0.9"}
+    prio = {"home": "1.0", "courses": "0.9", "consulting": "0.8", "legal": "0.2", "privacy": "0.2"}
     for key in ROUTES:
         for lang in ("es", "en"):
             out.append(f"<url><loc>{url(key, lang)}</loc><lastmod>{TODAY}</lastmod><priority>{prio.get(key, '0.6')}</priority>"
@@ -1012,6 +1042,13 @@ def main():
     write("llms.txt", llms())
     write("404.html", not_found())
     write(".nojekyll", "")
+    # Files in static/ are copied as-is to the site root (e.g. BingSiteAuth.xml, googleXXXX.html)
+    static = os.path.join(ROOT, "static")
+    if os.path.isdir(static):
+        for name in os.listdir(static):
+            src = os.path.join(static, name)
+            if os.path.isfile(src) and not name.startswith("."):
+                shutil.copy(src, os.path.join(OUT, name))
     if CONFIG["custom_domain"]:
         write("CNAME", CONFIG["custom_domain"] + "\n")
     images()
