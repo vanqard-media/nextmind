@@ -64,8 +64,31 @@ p { margin: 0 0 var(--space-4); max-width: 68ch; }
 .nav a:hover { border-bottom-color: var(--line-strong); }
 .nav a[aria-current="page"] { border-bottom-color: var(--text); font-weight: 600; }
 .nav a.nav-primary { font-weight: 600; }
-.nav .lang { color: var(--text-muted); font-size: 14px; }
-.menu-btn { display: none; font: 600 14px var(--font-sans); background: none; color: var(--text); border: 1.5px solid var(--text); border-radius: var(--radius-sm); padding: 8px 14px; cursor: pointer; }
+.menu-btn { display: none; background: none; color: var(--text); border: 0; padding: 10px 6px; cursor: pointer; line-height: 0; }
+.burger { display: inline-flex; flex-direction: column; justify-content: space-between; width: 24px; height: 16px; }
+.burger i { display: block; height: 2px; background: currentColor; transition: transform .2s ease, opacity .2s ease; }
+.menu-btn[aria-expanded="true"] .burger i:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-btn[aria-expanded="true"] .burger i:nth-child(2) { opacity: 0; }
+.menu-btn[aria-expanded="true"] .burger i:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* header runs wider than the page content */
+.site-header .wrap { max-width: 1600px; padding-inline: clamp(20px, 4vw, 64px); }
+.logo { margin-right: auto; padding-right: var(--space-6); }
+
+/* language selector: shows the current language, opens to ES / EN */
+.lang-menu { position: relative; }
+.lang-menu summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;
+  font: 600 14px/1 var(--font-sans); letter-spacing: 0.02em; color: var(--text); padding: 10px 10px; border-radius: var(--radius-sm); box-shadow: inset 0 0 0 1.5px var(--line-strong); }
+.lang-menu summary::-webkit-details-marker { display: none; }
+.lang-menu summary:hover { box-shadow: inset 0 0 0 1.5px var(--text); }
+.lang-menu .chev { width: 10px; height: 6px; transition: transform .2s ease; }
+.lang-menu[open] .chev { transform: rotate(180deg); }
+.lang-menu ul { position: absolute; right: 0; top: calc(100% + 6px); z-index: 30; list-style: none; margin: 0; padding: 6px; min-width: 150px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md); }
+.lang-menu a { display: flex; gap: 10px; align-items: baseline; padding: 10px 12px; color: var(--text); text-decoration: none; font-size: 15px; border-radius: var(--radius-sm); }
+.lang-menu a b { font-weight: 700; min-width: 22px; }
+.lang-menu a:hover { background: var(--surface-alt); }
+.lang-menu a[aria-current="true"] { background: var(--yellow); color: var(--black); }
 
 .btn { display: inline-block; font: 600 15px/1.2 var(--font-sans); letter-spacing: 0.01em; text-decoration: none; padding: 14px 24px; border-radius: var(--radius-sm); cursor: pointer; border: 0; }
 .btn-primary { background: var(--accent); color: var(--on-accent); }
@@ -240,7 +263,7 @@ p { margin: 0 0 var(--space-4); max-width: 68ch; }
 /* ---------- responsive */
 @media (max-width: 1180px) {
   .menu-btn { display: inline-block; }
-  .nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: var(--surface); border-bottom: 1px solid var(--line); padding: var(--space-2) var(--space-5) var(--space-4); }
+  .nav { display: none; position: absolute; top: 100%; left: 0; right: 0; padding-inline: clamp(20px, 4vw, 64px) !important; flex-direction: column; align-items: stretch; gap: 0; background: var(--surface); border-bottom: 1px solid var(--line); padding: var(--space-2) var(--space-5) var(--space-4); }
   .nav.open { display: flex; }
   .nav a { padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
   .nav a[aria-current="page"] { border-bottom-color: var(--line); }
@@ -260,7 +283,8 @@ p { margin: 0 0 var(--space-4); max-width: 68ch; }
   .hero-toggle { right: var(--space-4); bottom: var(--space-4); }
   .bar { min-height: 64px; gap: var(--space-3); }
   .bar .btn { padding: 8px 12px; font-size: 13px; }
-  .menu-btn { padding: 7px 10px; font-size: 13px; }
+  .lang-menu summary { padding: 8px 8px; font-size: 13px; }
+  .logo { padding-right: 0; }
   .split-media .media { order: -1; }
   .media.facet { clip-path: polygon(0 0, calc(100% - 40px) 0, 100% 69px, 100% 100%, 0 100%); }
   .media-wide { aspect-ratio: 16 / 9 !important; margin-bottom: var(--space-6); }

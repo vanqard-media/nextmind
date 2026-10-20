@@ -803,6 +803,15 @@ def layout(key, lang, title, desc, body, extra_ld):
     year = datetime.date.today().year
     a = lambda p: rel(key, lang, p)
     og_locale = "es_ES" if lang == "es" else "en_US"
+    lang_names = {"es": "Español", "en": "English"}
+    lang_items = "".join(
+        f'<li><a href="{rel(key, lang, ROUTES[key][l]) or "./"}" hreflang="{l}" lang="{l}"'
+        f'{" aria-current=\"true\"" if l == lang else ""}><b>{l.upper()}</b> {lang_names[l]}</a></li>'
+        for l in ("es", "en"))
+    lang_label = "Idioma" if lang == "es" else "Language"
+    lang_menu = (f'<details class="lang-menu"><summary aria-label="{lang_label}: {lang_names[lang]}">'
+                 f'{lang.upper()}<svg class="chev" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></summary>'
+                 f'<ul>{lang_items}</ul></details>')
     return f"""<!doctype html>
 <html lang="{lang}">
 <head>
@@ -839,9 +848,9 @@ def layout(key, lang, title, desc, body, extra_ld):
 <a class="skip" href="#main">{e(u['skip'])}</a>
 <header class="site-header"><div class="wrap bar">
   <a class="logo" href="{home_href}" aria-label="{BRAND}">{LOGO_SVG}</a>
-  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">{e(u['menu'])}</button>
-  <nav class="nav" id="site-nav" aria-label="{e(u['footer_nav'])}">{nav_links}
-    <a class="lang" href="{rel(key, lang, ROUTES[key][other]) or './'}" hreflang="{other}" lang="{other}">{e(u['switch'])}</a></nav>
+  <nav class="nav" id="site-nav" aria-label="{e(u['footer_nav'])}">{nav_links}</nav>
+  {lang_menu}
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="{e(u['menu'])}"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
   <a class="btn btn-primary" href="{a(ROUTES['contact'][lang])}">{e(u['cta'])}</a>
 </div></header>
 <main id="main">
