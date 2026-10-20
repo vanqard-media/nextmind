@@ -877,7 +877,7 @@ def layout(key, lang, title, desc, body, extra_ld):
 <a class="skip" href="#main">{e(u['skip'])}</a>
 <header class="site-header"><div class="wrap bar">
   <a class="logo" href="{home_href}" aria-label="{BRAND}">{LOGO_SVG}</a>
-  <nav class="nav" id="site-nav" aria-label="{e(u['footer_nav'])}">{nav_links}</nav>
+  <nav class="nav" id="site-nav" aria-label="{e(u['footer_nav'])}">{nav_links}<a class="nav-cta" href="{a(ROUTES['contact'][lang])}">{e(u['cta'])}</a></nav>
   {lang_menu}
   <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="{e(u['menu'])}"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
   <a class="btn btn-primary" href="{a(ROUTES['contact'][lang])}">{e(u['cta'])}</a>
